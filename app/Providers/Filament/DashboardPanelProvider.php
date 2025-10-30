@@ -27,6 +27,8 @@ class DashboardPanelProvider extends PanelProvider
             ->default()
             ->id('dashboard')
             ->path('dashboard')
+            ->registration()
+            ->brandName('Project Management')
             ->login()
             ->colors([
                 'primary' => Color::Amber,
