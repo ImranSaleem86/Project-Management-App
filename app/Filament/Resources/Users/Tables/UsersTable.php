@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Clients\Tables;
+namespace App\Filament\Resources\Users\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
@@ -8,8 +8,9 @@ use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
-class ClientsTable
+class UsersTable
 {
     public static function configure(Table $table): Table
     {
@@ -20,15 +21,13 @@ class ClientsTable
                 TextColumn::make('email')
                     ->label('Email address')
                     ->searchable(),
-                TextColumn::make('phone')
-                    ->searchable(),
-                TextColumn::make('status'),
-                TextColumn::make('creator.name')
-                    ->searchable()
-                    ->sortable(),
-                TextColumn::make('updater.name')
-                    ->searchable()
-                    ->sortable(),
+                TextColumn::make('roles.name')
+                    ->badge()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('email_verified_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

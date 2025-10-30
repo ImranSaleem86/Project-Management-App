@@ -18,7 +18,7 @@ class TaskResource extends Resource
 {
     protected static ?string $model = Task::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::QueueList;
 
     public static function form(Schema $schema): Schema
     {
@@ -33,7 +33,7 @@ class TaskResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            
         ];
     }
 
